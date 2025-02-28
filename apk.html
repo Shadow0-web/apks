@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APKs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #search {
+            width: 90%;
+            max-width: 500px;
+            padding: 12px;
+            margin: 20px auto;
+            display: block;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .menu-btn {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+
+            font-size: 34px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 2px;
+            color: #ffffff;
+
+            transition: opacity 0.3s;
+        }
+
+        .menu-btn.hide {
+            opacity: 0;
+            pointer-events: none; 
+        }
+
+        .menu {
+            position: fixed;
+            right: -300px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s;
+            z-index: 999;
+        }
+
+        .menu.open {
+            right: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+            background-color: #333;
+            border-radius: 4px;
+            color: #ff0000;
+        }
+
+        .filter-buttons {
+            margin-top: 40px; 
+
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #252627;
+            color: #fff;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .filter-btn:hover {
+            background: #0056b3;
+        }
+
+        .apk-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .apk-cardFnaf {
+            background: #5a3b3bfb;
+            width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .apk-card {
+            background: #82dbff;
+            width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .apk-card:hover {
+            transform: scale(1.05);
+        }
+
+        .apk-cardimg {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .apk-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #2f6914;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2bff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">⚙️</div>
+    <div class="menu" id="menu">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <div class="filter-buttons">
+            <button class="filter-btn" onclick="filterAPKs('all')">Todo</button>
+            <button class="filter-btn" onclick="filterAPKs('games')">Juegos</button>
+            <button class="filter-btn" onclick="filterAPKs('apps')">Aplicaciones</button>
+        </div>
+    </div>
+
+    <input type="text" id="search" placeholder="Buscar APK..." onkeyup="searchAPK()">
+
+    <div class="apk-container" id="apk-list">
+        <div class="apk-cardFnaf" data-name="Five nights at Freddy 1" data-category="games">
+            <img src="" alt="" class="apk-cardimg">
+            <h2>Five nights at Freddy 1</h2>
+            <a href="https://download2441.mediafire.com/r0740zroqiogVzyNCtA3Y2sGpr6LIRmdHbqnrPM5KlilT83Myr7QwdqcMk2LL5v-E4c4b88yqH0m8EGms0zEYvny-c1lznJgEHvgGIt7rX8EjUkUiud3MZioiY-STyUz-hxIWyATyhIs6QY_K4gTeS5kDJJjcUPpPPtcpjKXblmUnA/d3vn67g88tossnu/FNAF+1.apk" class="download-btn">Descargar</a>
+        </div>
+
+        <div class="apk-cardFnaf" data-name="Five nights at Freddy 2" data-category="games">
+            <img src="APKs_files/Five-Nights-at-Freddys-2-MOD-APK-cover.jpg" alt="" class="apk-cardimg">
+            <h2>Five nights at Freddy 2</h2>
+            <a href="https://download2388.mediafire.com/l9l2eugd715gqQekYVrPc1fa7TPzSbmR8PCVbs_y0WtdEQe07WKEKHYGdHaDufnCDDjQ4x-cORg4miWVJv-bqwysMSEaklOvzxPN4PbrPMhpIwtuIk4hIMCeAtsp1uQ5ZeQxPRbTMEPzDpjvkDVOcHXcGgr9wyImrBT2X6AKSwSbuw/3fr4bhrkov05f1r/FNAF+2.apk" class="download-btn">Descargar</a>
+        </div>
+
+        <div class="apk-card" data-name="Spotify" data-category="apps">
+            <img src="" alt="">
+            <h2>Five nights at Freddy 3</h2>
+            <a href="" class="download-btn">Descargar</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            const menuBtn = document.getElementById('menuBtn');
+            menu.classList.toggle('open');
+            menuBtn.classList.toggle('hide');
+        }
+
+        function searchAPK() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let apkCards = document.querySelectorAll('.apk-card');
+
+            apkCards.forEach(card => {
+                let apkName = card.getAttribute('data-name').toLowerCase();
+                card.style.display = apkName.includes(input) ? "block" : "none";
+            });
+        }
+
+        function filterAPKs(category) {
+            let apkCards = document.querySelectorAll('.apk-card');
+
+            apkCards.forEach(card => {
+                let apkCategory = card.getAttribute('data-category');
+                if (category === 'all' || apkCategory === category) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
