@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>apks</title>
-      <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #000000;
@@ -254,12 +254,7 @@
             <a href="//www.mediafire.com/file/3s9cfkea2pmxecj/Hollow_Knight_22.10.2022_GLES.apk/file?dkey=h81uo3srsbu&r=1666" class="download-btn">Descargar</a>
         </div>
     </div>
-
-
 </div>
-
-
-
 
 <script>
     function searchAPK() {
@@ -293,6 +288,7 @@
         let creditsText = document.getElementById('credits-text');
         creditsText.style.display = creditsText.style.display === "block" ? "none" : "block";
     }
+    
     document.getElementById('sidebarToggle').addEventListener('click', function() {
         document.getElementById('sidebar').classList.toggle('active');
         
@@ -304,18 +300,26 @@
             }
         }
     });
+    
     window.addEventListener('load', function() {
-        if (window.innerWidth > 768) {
-            document.getElementById('sidebar').classList.add('active');
-        }
-    });
-    window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             document.getElementById('sidebar').classList.add('active');
             document.body.style.marginLeft = '250px';
         } else {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.marginLeft = '0';
+            document.getElementById('sidebarToggle').style.display = 'flex';
+        }
+    });
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.marginLeft = '250px';
+            document.getElementById('sidebarToggle').style.display = 'none';
+        } else {
+            document.getElementById('sidebarToggle').style.display = 'flex';
+            if (!document.getElementById('sidebar').classList.contains('active')) {
+                document.body.style.marginLeft = '0';
+            }
         }
     });
 </script>
